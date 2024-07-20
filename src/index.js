@@ -32,6 +32,9 @@ module.exports = {
       socket.on("user-message", (message) => {
         io.emit("ser-message", message);
       });
+      socket.on("clicked-chat", (chatId) => {
+        io.emit("chat-click", chatId);
+      });
     });
 
     io.on("disconnect", () => {
