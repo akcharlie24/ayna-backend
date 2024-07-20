@@ -20,9 +20,9 @@ module.exports = {
     let { Server } = require("socket.io");
     let io = new Server(strapi.server.httpServer, {
       cors: {
-        origin: "http://localhost:3000", //TODO: change this to be captured from env file
-        methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
+        origin: "http://localhost:3000" || "*", //TODO: change this to be captured from env file
+        methods: ["GET", "POST", "PUT"],
+        allowedHeaders: ["my-custom-header", "Authorization", "Content-Type"],
         credentials: true,
       },
     });
