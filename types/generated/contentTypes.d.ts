@@ -380,6 +380,7 @@ export interface ApiChatChat extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    name: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

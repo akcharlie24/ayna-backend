@@ -20,6 +20,10 @@
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "chat_ids"
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }
