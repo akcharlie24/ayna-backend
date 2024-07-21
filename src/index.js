@@ -1,5 +1,7 @@
 "use strict";
 
+require("dotenv").config();
+
 module.exports = {
   /**
    * An asynchronous register function that runs before
@@ -20,7 +22,7 @@ module.exports = {
     let { Server } = require("socket.io");
     let io = new Server(strapi.server.httpServer, {
       cors: {
-        origin: "http://localhost:3000" || "*", //TODO: change this to be captured from env file
+        origin: process.env.CORS_ORIGIN || "*", //TODO: change this to be captured from env file
         methods: ["GET", "POST", "PUT"],
         allowedHeaders: ["my-custom-header", "Authorization", "Content-Type"],
         credentials: true,
@@ -28,7 +30,7 @@ module.exports = {
     });
 
     io.on("connection", (socket) => {
-      console.log("a user connected");
+      console.log("connection done");
       socket.on("user-message", (message) => {
         io.emit("ser-message", message);
       });
